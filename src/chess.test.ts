@@ -116,7 +116,7 @@ test('test illegal promotion', () => {
 
 test('default promotion to queen', () => {
   const pos = Chess.fromSetup(parseFen('4k3/7P/8/8/8/8/8/4K3 w - -').unwrap()).unwrap();
-  const move = { from: 55, to: 63 }; //TODO: figure out numbers for squares
+  const move = { from: 55, to: 63 }; // TODO: figure out numbers for squares
   expect(pos.isLegal(move)).toBe(true);
   pos.play(move);
   expect(makeFen(pos.toSetup())).toBe('4k2Q/8/8/8/8/8/8/4K3 b - - 1 1');
