@@ -122,6 +122,14 @@ test('default promotion to queen', () => {
   expect(makeFen(pos.toSetup())).toBe('4k2Q/8/8/8/8/8/8/4K3 b - - 0 1');
 });
 
+test('default promotion to queen black to move', () => {
+  const pos = Chess.fromSetup(parseFen('4k3/8/8/8/8/8/p7/4K3 b - - 0 1').unwrap()).unwrap();
+  const move = { from: 8, to: 0 };
+  expect(pos.isLegal(move)).toBe(true);
+  pos.play(move);
+  expect(makeFen(pos.toSetup())).toBe('4k3/8/8/8/8/8/8/q3K3 w - - 0 2');
+});
+
 test('starting perft', () => {
   const pos = Chess.default();
   expect(perft(pos, 0, false)).toBe(1);
