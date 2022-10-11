@@ -421,7 +421,7 @@ export abstract class Position {
     } else {
       if (move.promotion === 'pawn') return false;
       if (move.promotion === 'king' && this.rules !== 'antichess') return false;
-      if (!!move.promotion && !(this.board.pawn.has(move.from) && SquareSet.backranks().has(move.to))) return false;
+      if (!!move.promotion !== (this.board.pawn.has(move.from) && SquareSet.backranks().has(move.to))) return false;
       const dests = this.dests(move.from, ctx);
       return dests.has(move.to) || dests.has(normalizeMove(this, move).to);
     }
