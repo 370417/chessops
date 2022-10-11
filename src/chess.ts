@@ -497,6 +497,9 @@ export abstract class Position {
         if (move.promotion) {
           piece.role = move.promotion;
           piece.promoted = !!this.pockets;
+        } else if (SquareSet.backranks().has(move.to)) {
+          piece.role = 'queen';
+          piece.promoted = !!this.pockets;
         }
       } else if (piece.role === 'rook') {
         this.castles.discardRook(move.from);
