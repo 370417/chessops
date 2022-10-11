@@ -119,7 +119,7 @@ test('default promotion to queen', () => {
   const move = { from: 55, to: 63 };
   expect(pos.isLegal(move)).toBe(true);
   pos.play(move);
-  expect(makeFen(pos.toSetup())).toBe('4k2Q/8/8/8/8/8/8/4K3 b - - 1 1');
+  expect(makeFen(pos.toSetup())).toBe('4k2Q/8/8/8/8/8/8/4K3 b - - 0 1');
 });
 
 test('starting perft', () => {
